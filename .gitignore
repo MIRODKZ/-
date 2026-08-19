@@ -27,3 +27,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Qoder IDE
+.qoder/

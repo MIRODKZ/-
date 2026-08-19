@@ -192,6 +192,25 @@ if "last_sources" not in st.session_state:
     st.session_state.last_sources = []      # 最新一次检索的来源列表
 if "api_key_input" not in st.session_state:
     st.session_state.api_key_input = ""
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+# ─────────────────────────────────────────────
+# 访问密码保护（黑客松演示用）
+# ─────────────────────────────────────────────
+ACCESS_PASSWORD = "hackathon2026"  # 修改为你想要的密码
+
+if not st.session_state.authenticated:
+    st.markdown('<p class="main-title">🔒 全咨档案智能问答 Agent</p>', unsafe_allow_html=True)
+    st.caption("请输入访问密码以继续")
+    pwd_input = st.text_input("访问密码", type="password", placeholder="请输入密码…")
+    if st.button("🔓 验证", use_container_width=True):
+        if pwd_input == ACCESS_PASSWORD:
+            st.session_state.authenticated = True
+            st.rerun()
+        else:
+            st.error("密码错误，请重试")
+    st.stop()
 
 # ─────────────────────────────────────────────
 # 侧边栏
