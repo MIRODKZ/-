@@ -198,7 +198,8 @@ if "authenticated" not in st.session_state:
 # ─────────────────────────────────────────────
 # 访问密码保护（黑客松演示用）
 # ─────────────────────────────────────────────
-ACCESS_PASSWORD = "hackathon2026"  # 修改为你想要的密码
+# 从环境变量读取密码（本地 .env 或 Streamlit Cloud Secrets 配置）
+ACCESS_PASSWORD = os.getenv("ACCESS_PASSWORD", "hackathon2026")
 
 if not st.session_state.authenticated:
     st.markdown('<p class="main-title">🔒 全咨档案智能问答 Agent</p>', unsafe_allow_html=True)
