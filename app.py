@@ -12,7 +12,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from langchain_community.chat_models.tongyi import ChatTongyi
 from langchain_community.embeddings import DashScopeEmbeddings
-from langchain.schema import HumanMessage, SystemMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 
 # ─────────────────────────────────────────────
 # 配置
